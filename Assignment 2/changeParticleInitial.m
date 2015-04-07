@@ -9,7 +9,7 @@ function changeParticleInitial(particle, varargin)
         error('Wrong Number of inputs, either use changeParticleInitial(particle, posVector, velVector) or changeParticleInitial(particle, xPos, yPos, zPos, xVel, yVel, zVel)');
     end
     
-    fprintf('Particle No: %f\nMass: %f\nX Position: %f\nY Position: %f\nZ Position: %f\nX Velocity: %f\nY Velocity: %f\nZ Velocity: %f\n', particle, particles(particle, 1),particles(particle, 2), particles(particle, 3), particles(particle, 4), particles(particle, 5), particles(particle, 6), particles(particle, 7));
+    fprintf('Particle No: %f\nMass: %f\n\nPosition:\n\tX: %f\n\tY: %f\n\tZ: %f\n\nVelocities:\n\tX: %f\n\tY: %f\n\tZ: %f\n', particle, particles(particle, 1),particles(particle, 2), particles(particle, 3), particles(particle, 4), particles(particle, 5), particles(particle, 6), particles(particle, 7));
     
     save('initialCondition.mat', 'particles');
 end
