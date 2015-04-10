@@ -10,5 +10,3 @@ polyData = load('polydata.csv');
  hold on;
  plot(x, y,'r--');
  legend('Poly Data', eqStr);
- 
- 

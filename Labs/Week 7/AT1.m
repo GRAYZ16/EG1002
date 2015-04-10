@@ -8,7 +8,8 @@ equations = zeros(matDim);
 
 for ii = 1:(matDim - 1)
    equations(ii,ii) = -2;
-   equations(ii, ii+1) = 1;    
+   equations(ii, ii+1) = 1;  
+   equations(ii+1, ii) = 1;
 end
 
 equations(matDim, matDim) = -2;

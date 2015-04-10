@@ -1,13 +1,20 @@
 function forces=calcForce(particles)
     
-    forces = zeros(numel(particles)/7, 3);
+    forces = NaN(size(particles, 1), 3);
+    massVector = particles(:, 1);
+    positionMat = particles(:, 2:4);
+    gValue = 6.673e-11;
     
-    for particle = 1:(numel(particles)/7)
-        for forceComponent = 2:4
-            forceComponents = 6.673e-11*((particles(particle,1).*particles(:,1))./(-(particles(particle,forceComponent)-particles(:, forceComponent)).* abs(particles(particle,forceComponent)-particles(:, forceComponent))));
-            forceComponents(particle) = 0;
-            forceComponents(~isfinite(forceComponents)) = 0;
-            forces(particle, forceComponent-1) = sum(forceComponents);
-        end
-    end
+    %m(:,ones(size(d,1),1))
+    
+    for particle = 1:(size(particles, 1))
+        massParticle = massVector(particle);        
+        posParticle  = positionMat(particle, :);
+        massProduct = massParticle(:, ones(size(massVector, 2),1)).*(massVector);
+        displacement = -((posParticle(ones(size(positionMat, 1),1), :))-positionMat) .* abs((posParticle(ones(size(positionMat, 1),1), :))-positionMat);
+        forceComponents = gValue * (massProduct(:,ones(size(displacement,2),1))./displacement);
+        forceComponents(~isfinite(forceComponents)) = 0;
+        forces(particle, :) = sum(forceComponents);
+    end    
+    
 end

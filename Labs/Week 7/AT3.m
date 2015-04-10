@@ -1,23 +1,23 @@
 dt = 0.1;
-s = zeros(1, 10);
-v = zeros(1, 10);
-fallHeight = 5;
-t = zeros(1, 10);
 m = 10;
 k = 5;
 g = 9.81;
+s = [];
+v = [];
+a = [];
+time = 0;
 
-count = 2;
+s(1) = 0;
+v(1) = 0;
+a(1) = 9.81;
 
-while fallHeight > 0
-    v(count) = (g - (k * v(count -1)^2 / m)) * dt + v(count -1);
-    s(count) = v(count) * dt + s(count -1);
-    count= count + 1;
-    fallHeight = s(count);
+i = 1;
+
+
+while s(i) < 5
+    i = i+1;
+    a(i) = -(k/m) * v(i-1)^2 + g;
+    v(i) = dt * (a(i)) + v(i-1);
+    s(i) = v(i) * dt + s(i-1);   
+    time = time + dt;
 end
-
-for ii = 2:10
-    t(ii) = t(ii -1) + dt;
-end
-
-plot(t, s);
