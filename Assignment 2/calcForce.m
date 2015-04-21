@@ -5,8 +5,6 @@ function forces=calcForce(particles)
     positionMat = particles(:, 2:4);
     gValue = 6.673e-11;
     
-    %m(:,ones(size(d,1),1))
-    
     for particle = 1:(size(particles, 1))
         massParticle = massVector(particle);        
         posParticle  = positionMat(particle, :);
