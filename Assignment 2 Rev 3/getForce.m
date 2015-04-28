@@ -9,6 +9,9 @@ function force = getForce(particleID)
     for particle = 1:size(particles, 1)
         if particle == particleID
             continue;
+        else if particles(particle).mass == 0 || particles(particleID).mass == 0
+                continue;
+            end
         end
         
         distance_vector = particles(particle).position - particles(particleID).position;

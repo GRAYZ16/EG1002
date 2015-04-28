@@ -1,7 +1,7 @@
 %Test Main File
 clc();
 clear();
-load('SolarSystem.mat');
+load('SolarNew.mat');
 
 global particles;
 global dt;
@@ -10,19 +10,11 @@ time = 0;
 plotStep = 0;
 setPlot(10, 10, 10);
 
-while time < 1000000000000000000
-   for particle = 1:size(particles, 1)
-      force = getForce(particle);
-      particles(particle).acceleration = getAcceleration(particle, force);
-      particles(particle).velocity = getVelocity(particle);
-      particles(particle).position = getPosition(particle);
-   end
+while time < 10000000
+   runSimulation();
    
-   if plotStep == 128
-    plotSystem();
-    plotStep = 0;
+    plotSystem();    
     pause(1/65);
-   end
    
    plotStep = plotStep + 1;
    time = time + dt;

@@ -10,7 +10,7 @@ time = 0;
 setPlot(10, 10, 10);
 
 while time < 2.5
-   runSimulation();   
+   runSimulation();
    time = time + dt;
    plotSystem();
    pause(0.4);

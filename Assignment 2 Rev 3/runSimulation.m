@@ -4,6 +4,8 @@ function runSimulation()
     global particles;
     
    for particle = 1:size(particles, 1)
+       
+      checkCollision(particle); 
       force = getForce(particle);
       particles(particle).acceleration = getAcceleration(particle, force);
       particles(particle).velocity = getVelocity(particle);

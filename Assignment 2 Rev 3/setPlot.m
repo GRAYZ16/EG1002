@@ -7,8 +7,8 @@ function setPlot(xLim, yLim, zLim)
     hold all;
     view(3);    
     
-%     xlim([-xLim xLim]);
-%     ylim([-yLim yLim]);
-%     zlim([-zLim zLim]);
+    %xlim([-xLim xLim]);
+    %ylim([-yLim yLim]);
+    %zlim([-zLim zLim]);
 end
 
