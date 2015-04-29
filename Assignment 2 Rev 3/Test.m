@@ -1,21 +1,22 @@
 %Test Main File
 clc();
 clear();
-load('SolarNew.mat');
+load('SolarSystem.mat');
 
 global particles;
 global dt;
 
 time = 0;
 plotStep = 0;
-setPlot(10, 10, 10);
+initPlot();
 
-while time < 10000000
+while time < 10000
    runSimulation();
-   
+   if plotStep == 32
     plotSystem();    
-    pause(1/65);
-   
+    pause(1/256);
+    plotStep = 0;
+   end
    plotStep = plotStep + 1;
    time = time + dt;
 end

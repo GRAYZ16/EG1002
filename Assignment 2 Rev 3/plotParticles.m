@@ -23,7 +23,7 @@ function run(runTime)
         if plot_step == 128
             plotSystem();
             plot_step = 0;
-            pause(1/65);
+            pause(1/64);
         end
 
         plot_step = plot_step + 1;
