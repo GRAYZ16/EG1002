@@ -1,17 +1,25 @@
-%Base Variable File
-clc();
-clear();
-load('BaseVariables.mat');
+function BaseProgram()
+   setup();
+   run();
+end
 
-global particles;
-global dt;
+function setup()
+    clc();
+    clear();
+    load('BaseVariables.mat');
+    initPlot();
+    view(2);
+end
 
-time = 0;
-setPlot(10, 10, 10);
-
-while time < 2.5
-   runSimulation();
-   time = time + dt;
-   plotSystem();
-   pause(0.4);
+function run()
+    
+    time = 0;
+    global dt;
+    
+    while time < 2.5
+       runSimulation();
+       time = time + dt;
+       plotSystem();
+       pause(0.4);
+    end
 end

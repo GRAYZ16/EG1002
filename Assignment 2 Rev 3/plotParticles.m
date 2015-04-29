@@ -6,7 +6,7 @@ end
 function setup()
  clc();
  clear();
- setPlot(10, 10, 10);
+ initPlot();
  
  load('InitialMultiple');
 end
