@@ -1,4 +1,4 @@
-function BaseProgram()
+function simulateBaseVariables()
    setup();
    run();
 end

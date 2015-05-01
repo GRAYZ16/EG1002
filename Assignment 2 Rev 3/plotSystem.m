@@ -3,6 +3,7 @@ function plotSystem()
     %   Detailed explanation goes here
    
     global particles;
+    global particle_size;
     
     for particle = 1:size(particles)
         
@@ -18,6 +19,6 @@ function plotSystem()
             otherwise
                 plotColour = 'y';
         end
-        scatter3(particles(particle).position(1,1), particles(particle).position(1, 2), particles(particle).position(1, 3), plotColour);       
+        plot3(particles(particle).position(1,1), particles(particle).position(1, 2), particles(particle).position(1, 3), [plotColour, 'o'], 'MarkerSize', particle_size(particle));       
     end
 end

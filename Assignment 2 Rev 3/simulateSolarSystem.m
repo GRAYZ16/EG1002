@@ -1,14 +1,13 @@
-function plotParticles(runTime)
+function simulateSolarSystem(runTime)
    setup();  
    run(runTime);
 end
 
 function setup()
  clc();
- clear();
- initPlot();
- 
- load('InitialMultiple');
+ clear(); 
+ load('SolarSystem.mat');
+ initPlot(); 
 end
 
 function run(runTime)    
@@ -20,10 +19,10 @@ function run(runTime)
    while total_time < runTime
         runSimulation();
 
-        if plot_step == 128
+        if plot_step == 32
             plotSystem();
+            pause(1/256);            
             plot_step = 0;
-            pause(1/64);
         end
 
         plot_step = plot_step + 1;

@@ -1,6 +1,6 @@
 function ChangeInitialConditions(file, varargin)
-    %UNTITLED2 Summary of this function goes here
-    %   Detailed explanation goes here
+    %Change the intial conditions of a file
+    %   Modify one particle at a time
     load(file);  
     
     switch(nargin)
@@ -32,10 +32,10 @@ function changeParticle(varargin)
             error('You Must Input a particleID');
         end
         
-        name = input('Enter the new particle name(press return to skip): ', 's')
-        mass = input('Enter the new particle mass(press return to skip): ', 's')
-        position = input('Enter the new particle position vector(press return to skip): ', 's')
-        velocity = input('Enter the new particle velocity(press return to skip): ', 's')  
+        name = input('Enter the new particle name: ', 's')
+        mass = input('Enter the new particle mass: ', 's')
+        position = input('Enter the new particle position vector: ', 's')
+        velocity = input('Enter the new particle velocity: ', 's')  
         
         modifyParticles(name, mass, position, velocity);
     end
@@ -56,19 +56,10 @@ end
 function modifyParticles(ID, name, mass, position, velocity)
     global particles;
     
-    if ~isempty(name)
-        particles(ID).name = name;
-    end
-    if ~isempty(mass)
-        particles(ID).mass = mass;
-    end
-    if ~isempty(position)
-        particles(ID).position = position;
-    end
-%     if ~isempty(velocity)
-%         particles(ID).velocity = velocity;
-%     end
-    
+    particles(ID).name = name;
+    particles(ID).mass = mass;
+    particles(ID).position = position;
+    particles(ID).velocity = velocity;
     printDetails(ID);
 end
 

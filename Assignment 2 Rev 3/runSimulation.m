@@ -1,6 +1,6 @@
 function runSimulation()
-    %UNTITLED2 Summary of this function goes here
-    %   Detailed explanation goes here
+    %RUN SIMULATION
+    %   Runs the simulation code through once
     global particles;
     
    for particle = 1:size(particles, 1)
